@@ -17,8 +17,16 @@ export default function Board() {
 
   function handleClick(i) {
 
+    // Check if the square has already been clicked. 
+    // If clicked, return and do nothing 
+    if (squares[i] != null) {
+      return
+    }
+
     // Create a copy of set squares and then change the state of the first square to 'X'
     const nextSquares = squares.slice();
+
+
 
     if (xIsNext == true) {
       nextSquares[i] = "X";
@@ -28,7 +36,7 @@ export default function Board() {
       nextSquares[i] = "O";
       setXIsNext(true);
     } 
-    
+
     // You call the state's setSquare function here. 
     // Passing the nextSquares means that the state of the squares has changed.
     // So, re-render it. 
